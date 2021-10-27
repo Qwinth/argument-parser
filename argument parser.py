@@ -14,11 +14,9 @@ class ArgumentParser:
         num = 0
         num1 = 0
         args = {}
-        #print(self.args)
         while True:
             if not self.args[f'arg{num}'][1] == None:
                 if self.args[f'arg{num}'][0] in self.argv or self.args[f'arg{num}'][1] in self.argv:
-                    print(True)
                     if self.args[f'arg{num}'][2] == 'without_value':
                         args[self.args[f'arg{num}'][1].split('--')[1]] = True
                     else:
@@ -44,7 +42,6 @@ class ArgumentParser:
                                     num1 += 1
                                 args[self.args[f'arg{num}'][1].split('--')[1]] = _nargs
                 else:
-                    print(False)
                     if self.args[f'arg{num}'][2] == 'without_value':
                         args[self.args[f'arg{num}'][1].split('--')[1]] = False
                     else:
@@ -58,18 +55,14 @@ class ArgumentParser:
                 _nargs = []
                 _exceptions = [None, False, True]
                 while True:
-                    print('num12', num1)
                     try:
                         if not self.argv[num1][0] == '-':
                             _num = 0
                             _num1 = 0
                             while True:
                                 if not self.args[f'arg{_num}'] == self.args[list(self.args)[-1]]:
-                                    print('ok0')
                                     if not self.args[f'arg{_num}'][1] == None:
-                                        print('ok1')
                                         if args[self.args[f'arg{_num}'][1].split('--')[1]] in _exceptions:
-                                            print('ok2')
                                             _num1 += 1
                                             print('if done', _num1)
                                         print('len args', args)
@@ -80,17 +73,12 @@ class ArgumentParser:
                                     _num += 1
                             
                                 else:
-                                    #_nargs.append(self.argv[num1])
                                     break
                                     
                                 
                         else:
-                            print('spec')
                             num1 += 1
                     except IndexError:
-                        print('len', len(self.argv) - 1)
-                        print('num1', num1)
-                        print('exit')
                         break
                     num1 += 1
                 args[self.args[f'arg{num}'][0]] = _nargs

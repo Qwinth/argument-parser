@@ -22,7 +22,7 @@ class ArgumentParser:
         for i in range(0, self.arg_num):
             if self.args[f'arg{i}'][0] in self.argv:
                 args.update(self.getargs(i))
-            
+
             elif self.args[f'arg{i}'][1] in self.argv:
                 args.update(self.getargs(i))
         

@@ -6,7 +6,6 @@ class ArgumentParser:
         self.args = {}
 
     def add_argument(self, flag1, flag2, action = None, nargs='-'):
-        #globals()[flag1] = None
         self.args[f'arg{self.arg_num}'] = [flag1, flag2, action, nargs]
         self.arg_num += 1
 
